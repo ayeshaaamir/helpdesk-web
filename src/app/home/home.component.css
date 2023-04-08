@@ -1,0 +1,49 @@
+.m-auto {
+  margin: auto;
+}
+
+.helpdesk-header {
+  margin-left: 235px;
+  margin-top: 15px;
+}
+
+.font-white{
+  color: white;
+}
+
+.bg-color{
+  background-color: powderblue;
+  height: 420px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.ml-40 {
+  margin-left: 40px;
+}
+
+#services{
+  margin: 34px;
+  display: flex;
+}
+
+#services .box{
+  border: 2px solid teal;
+  padding: 34px;
+  margin: 3px 6px;
+  border-radius: 28px;
+  background: #f2f2f2;
+}
+
+#services .box img{
+  height: 160px;
+  margin: auto;
+  display: block;
+}
+
+#services .box p{
+  font-family: cursive;
+}
+
