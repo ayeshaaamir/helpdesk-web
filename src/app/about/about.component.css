@@ -1,0 +1,36 @@
+.mt-30 {
+  margin-top: 30px;
+}
+
+#services{
+  margin: 34px;
+  display: flex;
+}
+
+#services .box p{
+  font-family: cursive;
+}
+
+.font-cursive{
+  font-family: cursive;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px;
+  padding: 10px;
+}
+
+.h-primary {
+  font-weight: bolder;
+  text-align: center;
+}
+
+.mt-25 {
+  margin-top: -25px;
+}
+
+.ml-40 {
+  margin-left: 40px;
+}
