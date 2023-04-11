@@ -1,13 +1,13 @@
 <section>
   <h3 class="text-center mb-4 pb-2 fw-bold">FAQ</h3>
-  <p class="text-center mb-5">
+  <p class="text-center mb-5 font-cursive">
     Find the answers for the most frequently asked questions below
   </p>
 
   <div class="row">
     <div *ngFor="let faq of faq" class="col-md-6 col-lg-4 mb-4">
-      <h6 class="mb-3 text-primary"><i class="far fa-solid fa-question text-primary pe-2"></i>{{faq.question}}</h6>
-      <p>
+      <h6 class="mb-3 font-teal font-cursive"><i class="far fa-solid fa-question text-primary pe-2"></i>{{faq.question}}</h6>
+      <p class="font-cursive">
         {{faq.answer}}
       </p>
     </div>
