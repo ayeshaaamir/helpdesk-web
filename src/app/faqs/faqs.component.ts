@@ -67,5 +67,25 @@ export class FaqsComponent {
       answer:
         'A help desk process flow defines all the steps involved in resolving a customer query. It shows every step from the moment a ticket is collected and assigned to an agent until the ticket is resolved and customer feedback is collected.',
     },
+    {
+      question: 'What Is Helpdesk Support',
+      answer:
+        'Helpdesk support is a summary of activities a business undertakes to deliver adequate information and support to customers of a particular company.',
+    },
+    {
+      question: 'What Does the Help Desk Do',
+      answer:
+        'Helpdesk answers customer queries and addresses user or system issues.',
+    },
+    {
+      question: 'What Is Helpdesk Support',
+      answer:
+        'Helpdesk support is a summary of activities a business undertakes to deliver adequate information and support to customers of a particular company.',
+    },
+    {
+      question: 'What Does the Help Desk Do',
+      answer:
+        'Helpdesk answers customer queries and addresses user or system issues.',
+    },
   ];
 }
