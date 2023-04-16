@@ -11,6 +11,8 @@ import { FaqsComponent } from './faqs/faqs.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     LoginComponent,
     SignupComponent,
     AdminLoginComponent,
+    ContactUsComponent,
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,

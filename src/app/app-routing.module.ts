@@ -6,6 +6,8 @@ import { FaqsComponent } from './faqs/faqs.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'admin-login', component: AdminLoginComponent },
+  { path: 'contact', component: ContactUsComponent },
+  { path: 'feedback', component: FeedbackComponent },
 ];
 
 @NgModule({

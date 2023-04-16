@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand nav-color px-2">
-  <div class="side-nav-button text-light">
-  </div>
+  <div class="side-nav-button text-light"></div>
 
   <a
     routerLink="home"
@@ -62,13 +61,15 @@
               >User Login</a
             >
           </li>
-          <li><a
-            routerLink="/admin-login"
-            routerLinkActive="active"
-            ariaCurrentWhenActive="page"
-            class="dropdown-item"
-            >Admin Login</a
-          ></li>
+          <li>
+            <a
+              routerLink="/admin-login"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              class="dropdown-item"
+              >Admin Login</a
+            >
+          </li>
         </ul>
       </li>
 
@@ -85,7 +86,9 @@
 
       <li class="nav-item">
         <a
-          href="#"
+          routerLink="/contact"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
           class="nav-link font-weight-bold me-3 p-2 font-white"
           role="button"
           >Contact</a
@@ -94,7 +97,9 @@
 
       <li class="nav-item">
         <a
-          href="#"
+          routerLink="/feedback"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
           class="nav-link font-weight-bold me-3 p-2 font-white"
           role="button"
           >Feedback</a
