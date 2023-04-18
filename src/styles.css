@@ -22,6 +22,10 @@
   font-weight: bolder;
 }
 
+.font-white {
+  color: white;
+}
+
 .font-cursive {
   font-family: cursive;
 }

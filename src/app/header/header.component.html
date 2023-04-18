@@ -1,109 +1,105 @@
-<nav class="navbar navbar-expand nav-color px-2">
-  <div class="side-nav-button text-light"></div>
-
+<nav class="navbar navbar-expand-lg bg-light navbar-light">
   <a
+    class="navbar-brand px-4 font-weight-bold"
     routerLink="home"
     routerLinkActive="active"
     ariaCurrentWhenActive="page"
-    class="navbar-brand px-4 font-weight-bold font-white"
     >HelpDesk</a
   >
-
-  <div class="navbar-collapse">
-    <ul class="navbar-nav me-auto">
-      <li class="nav-item">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
         <a
+          class="nav-link font-weight-bold me-3 p-2"
           routerLink="home"
           routerLinkActive="active"
           ariaCurrentWhenActive="page"
-          class="nav-link font-weight-bold me-3 p-2 font-white"
-          role="button"
-          >Home</a
+          >Home <span class="sr-only">(current)</span></a
         >
       </li>
-
       <li class="nav-item">
         <a
+          class="nav-link font-weight-bold me-3 p-2"
           routerLink="/about"
           routerLinkActive="active"
           ariaCurrentWhenActive="page"
-          class="nav-link font-weight-bold me-3 p-2 font-white"
-          role="button"
-          >About</a
-        >
+          >About <span class="sr-only"></span
+        ></a>
       </li>
-
       <li class="nav-item">
         <a
+          class="nav-link font-weight-bold me-3 p-2"
           routerLink="/faq"
           routerLinkActive="active"
           ariaCurrentWhenActive="page"
-          class="nav-link font-weight-bold me-3 p-2 font-white"
-          role="button"
-          >FAQs</a
-        >
+          >FAQ <span class="sr-only"></span
+        ></a>
       </li>
-
       <li class="nav-item dropdown">
         <a
-          class="nav-link dropdown-toggle font-weight-bold me-3 p-2 font-white"
-          role="button"
-          data-bs-toggle="dropdown"
-          >Log In</a
+          style="cursor: pointer;"
+          class="nav-link dropdown-toggle font-weight-bold me-3 p-2"
+          id="navbarDropdownMenuLink"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
         >
-        <ul class="dropdown-menu font-white">
-          <li>
-            <a
-              routerLink="/login"
-              routerLinkActive="active"
-              ariaCurrentWhenActive="page"
-              class="dropdown-item"
-              >User Login</a
-            >
-          </li>
-          <li>
-            <a
-              routerLink="/admin-login"
-              routerLinkActive="active"
-              ariaCurrentWhenActive="page"
-              class="dropdown-item"
-              >Admin Login</a
-            >
-          </li>
-        </ul>
+          Log In
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a
+            class="nav-link font-weight-bold me-3 p-2"
+            routerLink="/login"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >User Login <span class="sr-only"></span
+          ></a>
+          <a
+            class="nav-link font-weight-bold me-3 p-2"
+            routerLink="/admin-login"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >Admin Login <span class="sr-only"></span
+          ></a>
+        </div>
       </li>
-
       <li class="nav-item">
         <a
+          class="nav-link font-weight-bold me-3 p-2"
           routerLink="/signup"
           routerLinkActive="active"
           ariaCurrentWhenActive="page"
-          class="nav-link font-weight-bold me-3 p-2 font-white"
-          role="button"
-          >Sign Up</a
-        >
+          >Sign Up <span class="sr-only"></span
+        ></a>
       </li>
-
       <li class="nav-item">
         <a
+          class="nav-link font-weight-bold me-3 p-2"
           routerLink="/contact"
           routerLinkActive="active"
           ariaCurrentWhenActive="page"
-          class="nav-link font-weight-bold me-3 p-2 font-white"
-          role="button"
-          >Contact</a
-        >
+          >Contact <span class="sr-only"></span
+        ></a>
       </li>
-
       <li class="nav-item">
         <a
+          class="nav-link font-weight-bold me-3 p-2"
           routerLink="/feedback"
           routerLinkActive="active"
           ariaCurrentWhenActive="page"
-          class="nav-link font-weight-bold me-3 p-2 font-white"
-          role="button"
-          >Feedback</a
-        >
+          >Feedback <span class="sr-only"></span
+        ></a>
       </li>
     </ul>
   </div>
