@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~primeng/resources/themes/saga-blue/theme.css';
+@import '~primeng/resources/primeng.min.css';
+@import '~primeicons/primeicons.css';
+
+.color-teal {
+  color: teal;
+}
+
+.btn-teal {
+  background-color: teal;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.font-bold {
+  font-weight: bolder;
+}
+
+.font-white {
+  color: white;
+}
+
+.font-cursive {
+  font-family: cursive;
+}
