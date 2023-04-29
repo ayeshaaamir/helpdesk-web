@@ -14,26 +14,47 @@
           <h3 class="font-bold">User Log In</h3>
           <div class="card">
             <div class="card-body py-5 px-md-5">
-              <form>
-
+              <form [formGroup]="LogInCredentials" (ngSubmit)="handleUserLogIn()">
                 <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3" class="form-control" />
-                  <label class="form-label" for="form3Example3"
-                    >Email address</label
+                  <input
+                    type="email"
+                    formControlName="email"
+                    id="form3Example3"
+                    class="form-control"
+                    placeholder="Email address"
+                  />
+                  <label
+                    *ngIf="email && email.invalid && email.touched"
+                    style="color: red"
+                    class="form-label"
+                    for="form3Example3"
+                    >Email address is invalid or empty.</label
                   >
                 </div>
 
                 <div class="form-outline mb-4">
                   <input
                     type="password"
+                    formControlName="password"
                     id="form3Example4"
                     class="form-control"
+                    placeholder="Password"
                   />
-                  <label class="form-label" for="form3Example4">Password</label>
+                  <label
+                    *ngIf="password && password.invalid && password.touched"
+                    class="form-label"
+                    style="color: red"
+                    for="form3Example4"
+                    >Password is required.</label
+                  >
                 </div>
 
-                <button type="submit" class="btn-teal btn btn-block mb-4" (click)="userLogIn()">
-                  User Log In
+                <button
+                  [disabled]="LogInCredentials.invalid || isProcess"
+                  type="submit"
+                  class="btn-teal btn btn-block mb-4"
+                >
+                  Log In
                 </button>
 
                 <div class="text-center">

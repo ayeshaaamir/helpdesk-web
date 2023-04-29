@@ -14,7 +14,7 @@
           <h3 class="font-bold">Register Now</h3>
           <div class="card">
             <div class="card-body py-5 px-md-5">
-              <form [formGroup]="signUpCredentials" (ngSubmit)="userSignUp()">
+              <form [formGroup]="signUpCredentials" (ngSubmit)="handleUserSignUp()">
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
@@ -91,7 +91,7 @@
                 </div>
 
                 <button
-                  [disabled]="signUpCredentials.invalid"
+                  [disabled]="signUpCredentials.invalid || isProcess"
                   type="submit"
                   class="btn-teal btn btn-block mb-4"
                 >
