@@ -21,6 +21,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtInterceptor } from './jwt.interceptor';
+import { UserSupportTicketComponent } from './user-support-ticket/user-support-ticket.component';
+import { TicketReportComponent } from './ticket-report/ticket-report.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { JwtInterceptor } from './jwt.interceptor';
     FeedbackComponent,
     AdminDashboardComponent,
     UserDashboardComponent,
+    UserSupportTicketComponent,
+    TicketReportComponent,
   ],
   imports: [
     BrowserModule,

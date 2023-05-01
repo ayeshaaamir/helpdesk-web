@@ -11,6 +11,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AuthGuard } from './auth.guard';
+import { UserSupportTicketComponent } from './user-support-ticket/user-support-ticket.component';
+import { TicketReportComponent } from './ticket-report/ticket-report.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: 'feedback', component: FeedbackComponent },
   { path: 'user-dashboard', component: UserDashboardComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent },
+  { path: 'user-support-ticket', component: UserSupportTicketComponent},
+  { path: 'ticket-report', component: TicketReportComponent},
 ];
 
 @NgModule({

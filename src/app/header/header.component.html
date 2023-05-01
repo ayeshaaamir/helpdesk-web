@@ -1,4 +1,12 @@
-<nav *ngIf="router.url !== '/user-dashboard' && router.url !== '/admin-dashboard'" class="navbar navbar-expand-lg bg-light navbar-light">
+<nav
+  *ngIf="
+    router.url !== '/user-dashboard' &&
+    router.url !== '/admin-dashboard' &&
+    router.url !== '/user-support-ticket' &&
+    router.url !== '/ticket-report'
+  "
+  class="navbar navbar-expand-lg bg-light navbar-light"
+>
   <a
     class="navbar-brand px-4 font-weight-bold"
     routerLink=""
@@ -48,7 +56,7 @@
       </li>
       <li class="nav-item dropdown">
         <a
-          style="cursor: pointer;"
+          style="cursor: pointer"
           class="nav-link dropdown-toggle font-weight-bold me-3 p-2"
           id="navbarDropdownMenuLink"
           data-toggle="dropdown"
@@ -105,13 +113,16 @@
   </div>
 </nav>
 
-<nav *ngIf="router.url === '/user-dashboard'" class="navbar navbar-expand-lg bg-light navbar-light">
+<nav
+  *ngIf="router.url === '/user-dashboard'"
+  class="navbar navbar-expand-lg bg-light navbar-light"
+>
   <a
     class="navbar-brand px-4 font-weight-bold"
     routerLink="/user-dashboard"
     routerLinkActive="active"
     ariaCurrentWhenActive="page"
-    >Home</a
+    >Dashboard</a
   >
   <button
     class="navbar-toggler"
@@ -126,19 +137,10 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a
-          class="nav-link font-weight-bold me-3 p-2"
-          routerLink="/user-dashboard"
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-          >Dashboard <span class="sr-only">(current)</span></a
-        >
-      </li>
       <li class="nav-item">
         <a
           class="nav-link font-weight-bold me-3 p-2"
-          routerLink="/user-dashboard"
+          routerLink="/user-support-ticket"
           routerLinkActive="active"
           ariaCurrentWhenActive="page"
           >Raise Ticket <span class="sr-only"></span
@@ -147,39 +149,11 @@
       <li class="nav-item">
         <a
           class="nav-link font-weight-bold me-3 p-2"
-          routerLink="/user-dashboard"
+          routerLink="/ticket-report"
           routerLinkActive="active"
           ariaCurrentWhenActive="page"
           >My Tickets <span class="sr-only"></span
         ></a>
-      </li>
-      <li class="nav-item dropdown">
-        <a
-          style="cursor: pointer;"
-          class="nav-link dropdown-toggle font-weight-bold me-3 p-2"
-          id="navbarDropdownMenuLink"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          My Administration
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a
-            class="nav-link font-weight-bold me-3 p-2"
-            routerLink="/user-dashboard"
-            routerLinkActive="active"
-            ariaCurrentWhenActive="page"
-            >User Login <span class="sr-only"></span
-          ></a>
-          <a
-            class="nav-link font-weight-bold me-3 p-2"
-            routerLink="/user-dashboard"
-            routerLinkActive="active"
-            ariaCurrentWhenActive="page"
-            >Admin Login <span class="sr-only"></span
-          ></a>
-        </div>
       </li>
       <li class="nav-item">
         <a
@@ -194,7 +168,120 @@
   </div>
 </nav>
 
-<nav *ngIf="router.url === '/admin-dashboard'" class="navbar navbar-expand-lg bg-light navbar-light">
+<nav
+  *ngIf="router.url === '/user-support-ticket'"
+  class="navbar navbar-expand-lg bg-light navbar-light"
+>
+  <a
+    class="navbar-brand px-4 font-weight-bold"
+    routerLink="/user-dashboard"
+    routerLinkActive="active"
+    ariaCurrentWhenActive="page"
+    >Dashboard</a
+  >
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a
+          class="nav-link font-weight-bold me-3 p-2"
+          routerLink="/user-support-ticket"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Raise Ticket <span class="sr-only"></span
+        ></a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link font-weight-bold me-3 p-2"
+          routerLink="/ticket-report"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >My Tickets <span class="sr-only"></span
+        ></a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link font-weight-bold me-3 p-2"
+          routerLink="/user-dashboard"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Log Out<span class="sr-only"></span
+        ></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<nav
+  *ngIf="router.url === '/ticket-report'"
+  class="navbar navbar-expand-lg bg-light navbar-light"
+>
+  <a
+    class="navbar-brand px-4 font-weight-bold"
+    routerLink="/user-dashboard"
+    routerLinkActive="active"
+    ariaCurrentWhenActive="page"
+    >Dashboard</a
+  >
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a
+          class="nav-link font-weight-bold me-3 p-2"
+          routerLink="/user-support-ticket"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Raise Ticket <span class="sr-only"></span
+        ></a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link font-weight-bold me-3 p-2"
+          routerLink="/ticket-report"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >My Tickets <span class="sr-only"></span
+        ></a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link font-weight-bold me-3 p-2"
+          routerLink="/user-dashboard"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Log Out<span class="sr-only"></span
+        ></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<nav
+  *ngIf="router.url === '/admin-dashboard'"
+  class="navbar navbar-expand-lg bg-light navbar-light"
+>
   <a
     class="navbar-brand px-4 font-weight-bold"
     routerLink="/user-dashboard"
@@ -226,7 +313,7 @@
       </li>
       <li class="nav-item dropdown">
         <a
-          style="cursor: pointer;"
+          style="cursor: pointer"
           class="nav-link dropdown-toggle font-weight-bold me-3 p-2"
           id="navbarDropdownMenuLink"
           data-toggle="dropdown"
@@ -254,7 +341,7 @@
       </li>
       <li class="nav-item dropdown">
         <a
-          style="cursor: pointer;"
+          style="cursor: pointer"
           class="nav-link dropdown-toggle font-weight-bold me-3 p-2"
           id="navbarDropdownMenuLink"
           data-toggle="dropdown"
