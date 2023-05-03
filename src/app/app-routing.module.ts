@@ -1,32 +1,33 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { FaqsComponent } from './faqs/faqs.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { FeedbackComponent } from './feedback/feedback.component';
-import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { AuthGuard } from './auth.guard';
-import { UserSupportTicketComponent } from './user-support-ticket/user-support-ticket.component';
-import { TicketReportComponent } from './ticket-report/ticket-report.component';
+import { LoginComponent } from './components/login/login.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { HomeComponent } from './components/home/home.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'faq', component: FaqsComponent },
-  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
-  { path: 'signup', component: SignupComponent },
-  { path: 'admin-login', component: AdminLoginComponent },
-  { path: 'contact', component: ContactUsComponent },
-  { path: 'feedback', component: FeedbackComponent },
-  { path: 'user-dashboard', component: UserDashboardComponent },
-  { path: 'admin-dashboard', component: AdminDashboardComponent },
-  { path: 'user-support-ticket', component: UserSupportTicketComponent},
-  { path: 'ticket-report', component: TicketReportComponent},
+  {path: '', component: HomeComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'admin-login', component: AdminLoginComponent},
+  {path: 'sign-up', component: SignupComponent},
+  {path: 'forgot-password', component: ForgotPasswordComponent},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {
+    path: 'admin',
+    canActivate: [AuthGuard],
+    loadChildren: () =>
+      import('./modules/admin/admin.module').then((m) => m.AdminModule),
+  },
+  {
+    path: 'user',
+    canActivate: [AuthGuard],
+    loadChildren: () =>
+      import('./modules/user/user.module').then((m) => m.UserModule),
+  },
+  {path: '**', component: NotFoundComponent},
 ];
 
 @NgModule({

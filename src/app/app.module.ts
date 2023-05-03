@@ -3,44 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-import { FooterComponent } from './footer/footer.component';
-import { AboutComponent } from './about/about.component';
-import { FaqsComponent } from './faqs/faqs.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { FeedbackComponent } from './feedback/feedback.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { JwtInterceptor } from './jwt.interceptor';
-import { UserSupportTicketComponent } from './user-support-ticket/user-support-ticket.component';
-import { TicketReportComponent } from './ticket-report/ticket-report.component';
+import { LoginComponent } from './components/login/login.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { HomeComponent } from './components/home/home.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { JwtInterceptor } from './jwt-interceptor/jwt.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    HomeComponent,
-    FooterComponent,
-    AboutComponent,
-    FaqsComponent,
     LoginComponent,
+    ForgotPasswordComponent,
+    NotFoundComponent,
     SignupComponent,
+    HomeComponent,
     AdminLoginComponent,
-    ContactUsComponent,
-    FeedbackComponent,
-    AdminDashboardComponent,
-    UserDashboardComponent,
-    UserSupportTicketComponent,
-    TicketReportComponent,
   ],
   imports: [
     BrowserModule,

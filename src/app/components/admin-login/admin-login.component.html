@@ -1,0 +1,92 @@
+<section class="">
+  <div class="px-4 py-5 px-md-5 text-center text-lg-start">
+    <div class="container">
+      <div class="row gx-lg-5 align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <h1 class="my-5 display-3 fw-bold ls-tight">
+            Welcome to the <br />
+            <span class="color-teal">HelpDesk Portal</span>
+          </h1>
+          <img src="./../../assets/ticketing.png" alt="" />
+        </div>
+
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <h3 class="font-bold">Admin Log In</h3>
+          <div class="card">
+            <div class="card-body py-5 px-md-5">
+              <form [formGroup]="LogInCredentials" (ngSubmit)="handleUserLogIn()">
+                <div class="form-outline mb-4">
+                  <input
+                    type="email"
+                    formControlName="email"
+                    id="form3Example3"
+                    class="form-control"
+                    placeholder="Email address"
+                  />
+                  <label
+                    *ngIf="email && email.invalid && email.touched"
+                    style="color: red"
+                    class="form-label"
+                    for="form3Example3"
+                    >Email address is invalid or empty.</label
+                  >
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input
+                    type="password"
+                    formControlName="password"
+                    id="form3Example4"
+                    class="form-control"
+                    placeholder="Password"
+                  />
+                  <label
+                    *ngIf="password && password.invalid && password.touched"
+                    class="form-label"
+                    style="color: red"
+                    for="form3Example4"
+                    >Password is required.</label
+                  >
+
+                  <div class="row">
+                    <div class="col-sm-8"></div>
+                    <div routerLink="../forgot-password" class="col-sm-4 cursor-pointer">
+                      <span class="font-teal">Forgot Password?</span>
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  [disabled]="LogInCredentials.invalid || isProcess"
+                  type="submit"
+                  class="btn-teal btn btn-block mb-4"
+                >
+                  Log In
+                </button>
+
+                <div class="text-center">
+                  <p>or log in with:</p>
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-facebook-f"></i>
+                  </button>
+
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-google"></i>
+                  </button>
+
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-twitter"></i>
+                  </button>
+
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-github"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

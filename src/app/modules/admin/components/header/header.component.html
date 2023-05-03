@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg bg-light navbar-light">
+  <a
+    class="navbar-brand px-4 font-weight-bold"
+    routerLink="/admin/home"
+    routerLinkActive="active"
+    ariaCurrentWhenActive="page"
+    >Dashboard</a
+  >
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a
+          class="nav-link font-weight-bold me-3 p-2"
+          routerLink="/admin/add-user"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Add User <span class="sr-only"></span
+        ></a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link font-weight-bold me-3 p-2"
+          routerLink="/admin/add-tickets"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Add Tickets <span class="sr-only"></span
+        ></a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link font-weight-bold me-3 p-2"
+          routerLink="/admin/all-tickets"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >All Tickets <span class="sr-only"></span
+        ></a>
+      </li>
+      <li class="nav-item">
+        <a (click)="onLogout()"
+          class="nav-link font-weight-bold me-3 p-2"
+          routerLink="/login"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Log Out<span class="sr-only"></span
+        ></a>
+      </li>
+    </ul>
+  </div>
+</nav>
