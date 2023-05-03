@@ -8,6 +8,7 @@ import { AllTicketsComponent } from './components/all-tickets/all-tickets.compon
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,6 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
     HeaderComponent,
     HomeComponent,
   ],
-  imports: [CommonModule, AdminRoutingModule],
+  imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule],
 })
 export class AdminModule {}
