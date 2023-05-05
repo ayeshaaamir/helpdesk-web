@@ -15,6 +15,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { JwtInterceptor } from './jwt-interceptor/jwt.interceptor';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { JwtInterceptor } from './jwt-interceptor/jwt.interceptor';
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     NoopAnimationsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DragDropModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
