@@ -6,29 +6,29 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-user-support-ticket',
-  templateUrl: './user-support-ticket.component.html',
-  styleUrls: ['./user-support-ticket.component.css']
+  selector: 'app-edit-ticket',
+  templateUrl: './edit-ticket.component.html',
+  styleUrls: ['./edit-ticket.component.css'],
 })
-export class UserSupportTicketComponent implements OnInit, OnDestroy {
-  private storageKey = 'ticketFormData';
+export class EditTicketComponent implements OnInit {
   ticketFields = new FormGroup({
     firstname: new FormControl('', [Validators.required]),
     lastname: new FormControl('', [Validators.required]),
     ticketTitle: new FormControl('', [Validators.required]),
     category: new FormControl('', [Validators.required]),
+    status: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
   });
-  ticketData = {};
+  ticketData: any;
 
-  constructor(private toast: ToastrService, private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private toast: ToastrService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.loadFormValues();
-  }
-
-  ngOnDestroy() {
-    this.saveFormValues();
+    this.getTicketDetails();
   }
 
   get firstname() {
@@ -47,6 +47,10 @@ export class UserSupportTicketComponent implements OnInit, OnDestroy {
     return this.ticketFields.get('category');
   }
 
+  get status() {
+    return this.ticketFields.get('status');
+  }
+
   get email() {
     return this.ticketFields.get('email');
   }
@@ -55,15 +59,10 @@ export class UserSupportTicketComponent implements OnInit, OnDestroy {
     return this.ticketFields.get('description');
   }
 
-  loadFormValues() {
-    const savedData = localStorage.getItem(this.storageKey);
-    if (savedData) {
-      this.ticketFields.setValue(JSON.parse(savedData));
-    }
-  }
-
-  saveFormValues() {
-    localStorage.setItem(this.storageKey, JSON.stringify(this.ticketFields.value));
+  getTicketDetails() {
+    const ticket = this.route.snapshot.queryParamMap.get('myObject') as string;
+    this.ticketData = JSON.parse(ticket) || {};
+    console.log(this.ticketData);
   }
 
   resetForm() {
@@ -71,13 +70,22 @@ export class UserSupportTicketComponent implements OnInit, OnDestroy {
   }
 
   handleNewTicket() {
-    if(this.ticketFields.valid) {
-      this.ticketData = this.ticketFields.value;
+    if (this.ticketFields.valid) {
+      this.ticketData.raisedBy = {
+        firstname: this.ticketFields.value.firstname,
+        lastname: this.ticketFields.value.lastname,
+      };
+      this.ticketData.ticketTitle = this.ticketFields.value.ticketTitle;
+      this.ticketData.category = this.ticketFields.value.category;
+      this.ticketData.status = this.ticketFields.value.status;
+      this.ticketData.ticketDesc = this.ticketFields.value.description;
       console.log(this.ticketData);
-      this.toast.success('Ticket raised successfully!', 'Success', {
+
+      this.toast.success('Ticket updated successfully!', 'Success', {
         timeOut: 8000,
         positionClass: 'toast-bottom-right',
       });
+
       this.ticketFields.reset();
     } else {
       this.toast.error('Please fill in all the required fields.', 'Error', {

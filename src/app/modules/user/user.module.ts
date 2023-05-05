@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { KanbanComponent } from './components/kanban/kanban.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { EditTicketComponent } from './components/edit-ticket/edit-ticket.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     UserSupportTicketComponent,
     HomeComponent,
     KanbanComponent,
+    EditTicketComponent,
   ],
   imports: [
     CommonModule,

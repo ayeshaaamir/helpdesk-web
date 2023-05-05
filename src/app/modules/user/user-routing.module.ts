@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { TicketReportComponent } from './components/ticket-report/ticket-report.component';
 import { UserSupportTicketComponent } from './components/user-support-ticket/user-support-ticket.component';
 import { KanbanComponent } from './components/kanban/kanban.component';
+import { EditTicketComponent } from './components/edit-ticket/edit-ticket.component';
 
 const routes: Routes = [
   {path: '', component: UserDashboardComponent,
@@ -12,6 +13,7 @@ const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'ticket-report', component: TicketReportComponent},
     {path: 'user-support-ticket', component: UserSupportTicketComponent},
+    {path: 'edit-ticket', component: EditTicketComponent},
     {path: 'kanban', component: KanbanComponent},
     {path: '', redirectTo: '/user/home', pathMatch: 'full'}
   ]}

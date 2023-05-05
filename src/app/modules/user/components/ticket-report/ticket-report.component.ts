@@ -16,7 +16,7 @@ export class TicketReportComponent implements OnInit, AfterViewInit {
   toDoTickets: any[] = [];
   inProgressTickets: any[] = [];
   resolvedTickets: any[] = [];
-  closedTickets: any[] = [];
+  reopenedTickets: any[] = [];
 
   constructor(
     private router: Router,
@@ -35,14 +35,14 @@ export class TicketReportComponent implements OnInit, AfterViewInit {
     });
   }
 
-  navigateToEditTicket() {
-    this.router.navigate(['/user/user-support-ticket']);
+  navigateToEditTicket(ticket: any) {
+    this.router.navigate(['/user/edit-ticket'], { queryParams: { myObject: JSON.stringify(ticket) } });
   }
 
   ticketDetails() {
     this.ticketReport = [
       {
-        ticketPriority: 'very-high',
+        ticketPriority: 'Very High',
         ticketDesc: 'Need to change laptop',
         ticketNumber: 49,
         raisedBy: 'Aman Kumar',
@@ -50,7 +50,7 @@ export class TicketReportComponent implements OnInit, AfterViewInit {
         status: 'Todo',
       },
       {
-        ticketPriority: 'high',
+        ticketPriority: 'High',
         ticketDesc: 'Internet connectivity issue',
         ticketNumber: 50,
         raisedBy: 'John Doe',
@@ -58,28 +58,28 @@ export class TicketReportComponent implements OnInit, AfterViewInit {
         status: 'Todo',
       },
       {
-        ticketPriority: 'high',
+        ticketPriority: 'High',
         ticketDesc: 'Internet connectivity issue',
-        ticketNumber: 50,
+        ticketNumber: 51,
         raisedBy: 'John Doe',
         email: 'john.doe@example.com',
         status: 'In Progress',
       },
       {
-        ticketPriority: 'medium',
+        ticketPriority: 'Medium',
         ticketDesc: 'Internet connectivity issue',
-        ticketNumber: 50,
+        ticketNumber: 52,
         raisedBy: 'John Doe',
         email: 'john.doe@example.com',
         status: 'Resolved',
       },
       {
-        ticketPriority: 'low',
+        ticketPriority: 'Low',
         ticketDesc: 'Internet connectivity issue',
-        ticketNumber: 50,
+        ticketNumber: 53,
         raisedBy: 'John Doe',
         email: 'john.doe@example.com',
-        status: 'Closed',
+        status: 'Reopened',
       },
     ];
   }
@@ -94,8 +94,8 @@ export class TicketReportComponent implements OnInit, AfterViewInit {
     this.resolvedTickets = this.ticketReport.filter(
       (ticket) => ticket.status === 'Resolved'
     );
-    this.closedTickets = this.ticketReport.filter(
-      (ticket) => ticket.status === 'Closed'
+    this.reopenedTickets = this.ticketReport.filter(
+      (ticket) => ticket.status === 'Reopened'
     );
   }
 }

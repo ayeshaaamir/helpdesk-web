@@ -11,19 +11,64 @@
     <div *ngIf="ticketReport?.length !== 0" class="row">
       <div *ngIf="toDoTickets?.length !== 0" class="col-md-3">
         <h2>To Do</h2>
-        <div *ngFor="let ticketDetails of toDoTickets" class="price-card mt-25">
-          <h2 *ngIf="ticketDetails.ticketPriority === 'very-high'"><div data-toggle="tooltip" data-placement="top" title="Very High Priority" class='box maroon'></div></h2>
-          <h2 *ngIf="ticketDetails.ticketPriority === 'high'"><div data-toggle="tooltip" data-placement="top" title="High Priority" class='box red'></div></h2>
-          <h2 *ngIf="ticketDetails.ticketPriority === 'medium'"><div data-toggle="tooltip" data-placement="top" title="Medium Priority" class='box yellow'></div></h2>
-          <h2 *ngIf="ticketDetails.ticketPriority === 'low'"><div data-toggle="tooltip" data-placement="top" title="Low Priority" class='box grey'></div></h2>
-          <p class="font-bold">{{ticketDetails.ticketDesc}}</p>
-          <p class="price font-bold">Ticket Number:<span>{{ticketDetails.ticketNumber}}</span></p>
+        <div *ngFor="let ticketDetails of toDoTickets; let i = index" class="price-card mt-25">
+          <h2 *ngIf="ticketDetails.ticketPriority === 'Very High'">
+            <div
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Very High Priority"
+              class="box maroon"
+            ></div>
+          </h2>
+          <h2 *ngIf="ticketDetails.ticketPriority === 'High'">
+            <div
+              data-toggle="tooltip"
+              data-placement="top"
+              title="High Priority"
+              class="box red"
+            ></div>
+          </h2>
+          <h2 *ngIf="ticketDetails.ticketPriority === 'Medium'">
+            <div
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Medium Priority"
+              class="box yellow"
+            ></div>
+          </h2>
+          <h2 *ngIf="ticketDetails.ticketPriority === 'Low'">
+            <div
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Low Priority"
+              class="box grey"
+            ></div>
+          </h2>
+          <p class="font-bold">{{ ticketDetails.ticketDesc }}</p>
+          <p class="price font-bold">
+            Ticket Number:<span>{{ ticketDetails.ticketNumber }}</span>
+          </p>
           <ul class="pricing-offers">
-            <li><span class="font-bold">Raised by:</span>&nbsp;&nbsp;&nbsp;<span>{{ticketDetails.raisedBy}}</span></li>
-            <li><span class="font-bold">Email:</span>&nbsp;&nbsp;&nbsp;<span>{{ticketDetails.email}}</span></li>
-            <li><span class="font-bold">Status:</span>&nbsp;&nbsp;&nbsp;<span>{{ticketDetails.status}}</span></li>
+            <li>
+              <span class="font-bold">Raised by:</span
+              >&nbsp;&nbsp;&nbsp;<span>{{ ticketDetails.raisedBy }}</span>
+            </li>
+            <li>
+              <span class="font-bold">Email:</span>&nbsp;&nbsp;&nbsp;<span>{{
+                ticketDetails.email
+              }}</span>
+            </li>
+            <li>
+              <span class="font-bold">Status:</span>&nbsp;&nbsp;&nbsp;<span>{{
+                ticketDetails.status
+              }}</span>
+            </li>
           </ul>
-          <a (click)="navigateToEditTicket()" class="btn btn-primary btn-mid mr-3">Edit Ticket Details</a>
+          <a
+            (click)="navigateToEditTicket(ticketDetails)"
+            class="btn btn-primary btn-mid mr-3"
+            >Edit Ticket Details</a
+          >
         </div>
       </div>
 
@@ -36,19 +81,67 @@
 
       <div *ngIf="inProgressTickets?.length !== 0" class="col-md-3">
         <h2>In Progress</h2>
-        <div *ngFor="let ticketDetails of inProgressTickets" class="price-card mt-25">
-          <h2 *ngIf="ticketDetails.ticketPriority === 'very-high'"><div data-toggle="tooltip" data-placement="top" title="Very High Priority" class='box maroon'></div></h2>
-          <h2 *ngIf="ticketDetails.ticketPriority === 'high'"><div data-toggle="tooltip" data-placement="top" title="High Priority" class='box red'></div></h2>
-          <h2 *ngIf="ticketDetails.ticketPriority === 'medium'"><div data-toggle="tooltip" data-placement="top" title="Medium Priority" class='box yellow'></div></h2>
-          <h2 *ngIf="ticketDetails.ticketPriority === 'low'"><div data-toggle="tooltip" data-placement="top" title="Low Priority" class='box grey'></div></h2>
-          <p class="font-bold">{{ticketDetails.ticketDesc}}</p>
-          <p class="price font-bold">Ticket Number:<span>{{ticketDetails.ticketNumber}}</span></p>
+        <div
+          *ngFor="let ticketDetails of inProgressTickets; let i = index"
+          class="price-card mt-25"
+        >
+          <h2 *ngIf="ticketDetails.ticketPriority === 'Very High'">
+            <div
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Very High Priority"
+              class="box maroon"
+            ></div>
+          </h2>
+          <h2 *ngIf="ticketDetails.ticketPriority === 'High'">
+            <div
+              data-toggle="tooltip"
+              data-placement="top"
+              title="High Priority"
+              class="box red"
+            ></div>
+          </h2>
+          <h2 *ngIf="ticketDetails.ticketPriority === 'Medium'">
+            <div
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Medium Priority"
+              class="box yellow"
+            ></div>
+          </h2>
+          <h2 *ngIf="ticketDetails.ticketPriority === 'Low'">
+            <div
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Low Priority"
+              class="box grey"
+            ></div>
+          </h2>
+          <p class="font-bold">{{ ticketDetails.ticketDesc }}</p>
+          <p class="price font-bold">
+            Ticket Number:<span>{{ ticketDetails.ticketNumber }}</span>
+          </p>
           <ul class="pricing-offers">
-            <li><span class="font-bold">Raised by:</span>&nbsp;&nbsp;&nbsp;<span>{{ticketDetails.raisedBy}}</span></li>
-            <li><span class="font-bold">Email:</span>&nbsp;&nbsp;&nbsp;<span>{{ticketDetails.email}}</span></li>
-            <li><span class="font-bold">Status:</span>&nbsp;&nbsp;&nbsp;<span>{{ticketDetails.status}}</span></li>
+            <li>
+              <span class="font-bold">Raised by:</span
+              >&nbsp;&nbsp;&nbsp;<span>{{ ticketDetails.raisedBy }}</span>
+            </li>
+            <li>
+              <span class="font-bold">Email:</span>&nbsp;&nbsp;&nbsp;<span>{{
+                ticketDetails.email
+              }}</span>
+            </li>
+            <li>
+              <span class="font-bold">Status:</span>&nbsp;&nbsp;&nbsp;<span>{{
+                ticketDetails.status
+              }}</span>
+            </li>
           </ul>
-          <a (click)="navigateToEditTicket()" class="btn btn-primary btn-mid mr-3">Edit Ticket Details</a>
+          <a
+            (click)="navigateToEditTicket(ticketDetails)"
+            class="btn btn-primary btn-mid mr-3"
+            >Edit Ticket Details</a
+          >
         </div>
       </div>
 
@@ -61,19 +154,67 @@
 
       <div *ngIf="resolvedTickets?.length !== 0" class="col-md-3">
         <h2>Resolved</h2>
-        <div *ngFor="let ticketDetails of resolvedTickets" class="price-card mt-25">
-          <h2 *ngIf="ticketDetails.ticketPriority === 'very-high'"><div data-toggle="tooltip" data-placement="top" title="Very High Priority" class='box maroon'></div></h2>
-          <h2 *ngIf="ticketDetails.ticketPriority === 'high'"><div data-toggle="tooltip" data-placement="top" title="High Priority" class='box red'></div></h2>
-          <h2 *ngIf="ticketDetails.ticketPriority === 'medium'"><div data-toggle="tooltip" data-placement="top" title="Medium Priority" class='box yellow'></div></h2>
-          <h2 *ngIf="ticketDetails.ticketPriority === 'low'"><div data-toggle="tooltip" data-placement="top" title="Low Priority" class='box grey'></div></h2>
-          <p class="font-bold">{{ticketDetails.ticketDesc}}</p>
-          <p class="price font-bold">Ticket Number:<span>{{ticketDetails.ticketNumber}}</span></p>
+        <div
+          *ngFor="let ticketDetails of resolvedTickets; let i = index"
+          class="price-card mt-25"
+        >
+          <h2 *ngIf="ticketDetails.ticketPriority === 'Very High'">
+            <div
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Very High Priority"
+              class="box maroon"
+            ></div>
+          </h2>
+          <h2 *ngIf="ticketDetails.ticketPriority === 'High'">
+            <div
+              data-toggle="tooltip"
+              data-placement="top"
+              title="High Priority"
+              class="box red"
+            ></div>
+          </h2>
+          <h2 *ngIf="ticketDetails.ticketPriority === 'Medium'">
+            <div
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Medium Priority"
+              class="box yellow"
+            ></div>
+          </h2>
+          <h2 *ngIf="ticketDetails.ticketPriority === 'Low'">
+            <div
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Low Priority"
+              class="box grey"
+            ></div>
+          </h2>
+          <p class="font-bold">{{ ticketDetails.ticketDesc }}</p>
+          <p class="price font-bold">
+            Ticket Number:<span>{{ ticketDetails.ticketNumber }}</span>
+          </p>
           <ul class="pricing-offers">
-            <li><span class="font-bold">Raised by:</span>&nbsp;&nbsp;&nbsp;<span>{{ticketDetails.raisedBy}}</span></li>
-            <li><span class="font-bold">Email:</span>&nbsp;&nbsp;&nbsp;<span>{{ticketDetails.email}}</span></li>
-            <li><span class="font-bold">Status:</span>&nbsp;&nbsp;&nbsp;<span>{{ticketDetails.status}}</span></li>
+            <li>
+              <span class="font-bold">Raised by:</span
+              >&nbsp;&nbsp;&nbsp;<span>{{ ticketDetails.raisedBy }}</span>
+            </li>
+            <li>
+              <span class="font-bold">Email:</span>&nbsp;&nbsp;&nbsp;<span>{{
+                ticketDetails.email
+              }}</span>
+            </li>
+            <li>
+              <span class="font-bold">Status:</span>&nbsp;&nbsp;&nbsp;<span>{{
+                ticketDetails.status
+              }}</span>
+            </li>
           </ul>
-          <a (click)="navigateToEditTicket()" class="btn btn-primary btn-mid mr-3">Edit Ticket Details</a>
+          <a
+            (click)="navigateToEditTicket(ticketDetails)"
+            class="btn btn-primary btn-mid mr-3"
+            >Edit Ticket Details</a
+          >
         </div>
       </div>
 
@@ -84,35 +225,82 @@
         </div>
       </div>
 
-      <div *ngIf="closedTickets?.length !== 0" class="col-md-3">
-        <h2>Closed</h2>
-        <div *ngFor="let ticketDetails of closedTickets" class="price-card mt-25">
-          <h2 *ngIf="ticketDetails.ticketPriority === 'very-high'"><div data-toggle="tooltip" data-placement="top" title="Very High Priority" class='box maroon'></div></h2>
-          <h2 *ngIf="ticketDetails.ticketPriority === 'high'"><div data-toggle="tooltip" data-placement="top" title="High Priority" class='box red'></div></h2>
-          <h2 *ngIf="ticketDetails.ticketPriority === 'medium'"><div data-toggle="tooltip" data-placement="top" title="Medium Priority" class='box yellow'></div></h2>
-          <h2 *ngIf="ticketDetails.ticketPriority === 'low'"><div data-toggle="tooltip" data-placement="top" title="Low Priority" class='box grey'></div></h2>
-          <p class="font-bold">{{ticketDetails.ticketDesc}}</p>
-          <p class="price font-bold">Ticket Number:<span>{{ticketDetails.ticketNumber}}</span></p>
+      <div *ngIf="reopenedTickets?.length !== 0" class="col-md-3">
+        <h2>Reopened</h2>
+        <div
+          *ngFor="let ticketDetails of reopenedTickets; let i = index"
+          class="price-card mt-25"
+        >
+          <h2 *ngIf="ticketDetails.ticketPriority === 'Very High'">
+            <div
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Very High Priority"
+              class="box maroon"
+            ></div>
+          </h2>
+          <h2 *ngIf="ticketDetails.ticketPriority === 'High'">
+            <div
+              data-toggle="tooltip"
+              data-placement="top"
+              title="High Priority"
+              class="box red"
+            ></div>
+          </h2>
+          <h2 *ngIf="ticketDetails.ticketPriority === 'Medium'">
+            <div
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Medium Priority"
+              class="box yellow"
+            ></div>
+          </h2>
+          <h2 *ngIf="ticketDetails.ticketPriority === 'Low'">
+            <div
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Low Priority"
+              class="box grey"
+            ></div>
+          </h2>
+          <p class="font-bold">{{ ticketDetails.ticketDesc }}</p>
+          <p class="price font-bold">
+            Ticket Number:<span>{{ ticketDetails.ticketNumber }}</span>
+          </p>
           <ul class="pricing-offers">
-            <li><span class="font-bold">Raised by:</span>&nbsp;&nbsp;&nbsp;<span>{{ticketDetails.raisedBy}}</span></li>
-            <li><span class="font-bold">Email:</span>&nbsp;&nbsp;&nbsp;<span>{{ticketDetails.email}}</span></li>
-            <li><span class="font-bold">Status:</span>&nbsp;&nbsp;&nbsp;<span>{{ticketDetails.status}}</span></li>
+            <li>
+              <span class="font-bold">Raised by:</span
+              >&nbsp;&nbsp;&nbsp;<span>{{ ticketDetails.raisedBy }}</span>
+            </li>
+            <li>
+              <span class="font-bold">Email:</span>&nbsp;&nbsp;&nbsp;<span>{{
+                ticketDetails.email
+              }}</span>
+            </li>
+            <li>
+              <span class="font-bold">Status:</span>&nbsp;&nbsp;&nbsp;<span>{{
+                ticketDetails.status
+              }}</span>
+            </li>
           </ul>
-          <a (click)="navigateToEditTicket()" class="btn btn-primary btn-mid mr-3">Edit Ticket Details</a>
+          <a
+            (click)="navigateToEditTicket(ticketDetails)"
+            class="btn btn-primary btn-mid mr-3"
+            >Edit Ticket Details</a
+          >
         </div>
       </div>
 
-      <div *ngIf="closedTickets?.length === 0" class="col-md-3">
-        <h2>Closed</h2>
+      <div *ngIf="reopenedTickets?.length === 0" class="col-md-3">
+        <h2>Reopened</h2>
         <div class="price-card">
-          <h2>No Closed Task</h2>
+          <h2>No Reopened Task</h2>
         </div>
       </div>
     </div>
 
     <div *ngIf="ticketReport?.length === 0" class="row mt-60">
-      <div class="col-sm-4">
-      </div>
+      <div class="col-sm-4"></div>
 
       <div class="col-sm-4">
         <div class="price-card">
@@ -120,8 +308,7 @@
         </div>
       </div>
 
-      <div class="col-sm-4">
-      </div>
+      <div class="col-sm-4"></div>
     </div>
   </div>
 </section>
