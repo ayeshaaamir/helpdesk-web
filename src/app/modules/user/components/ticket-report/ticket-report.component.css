@@ -187,9 +187,24 @@ ul li {
   margin-bottom: 15px;
   clear: both;
 }
+.maroon {
+  background-color: maroon;
+}
 .red {
   background-color: red;
 }
+.yellow {
+  background-color: yellow;
+}
+.grey {
+  background-color: grey;
+}
 .mr-3 {
   margin-right: 3px;
+}
+.mt-60 {
+  margin-top: 60px;
+}
+.mt-25 {
+  margin-top: 25px;
 }

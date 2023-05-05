@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './user-support-ticket.component.html',
   styleUrls: ['./user-support-ticket.component.css']
 })
-export class UserSupportTicketComponent {
+export class UserSupportTicketComponent implements OnInit{
   ticketFields = new FormGroup({
     firstname: new FormControl('', [Validators.required]),
     lastname: new FormControl('', [Validators.required]),
@@ -18,6 +18,7 @@ export class UserSupportTicketComponent {
     category: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
   });
+  ticketData = {};
 
   constructor(private toast: ToastrService, private router: Router, private route: ActivatedRoute) {}
 
@@ -52,5 +53,19 @@ export class UserSupportTicketComponent {
   }
 
   handleNewTicket() {
+    if(this.ticketFields.valid) {
+      this.ticketData = this.ticketFields.value;
+      console.log(this.ticketData);
+      this.toast.success('Ticket raised successfully!', 'Success', {
+        timeOut: 8000,
+        positionClass: 'toast-bottom-right',
+      });
+      this.ticketFields.reset();
+    } else {
+      this.toast.error('Please fill in all the required fields.', 'Error', {
+        timeOut: 3000,
+        positionClass: 'toast-bottom-right',
+      });
+    }
   }
 }

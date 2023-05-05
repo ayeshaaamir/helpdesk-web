@@ -8,7 +8,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TicketReportComponent } from './components/ticket-report/ticket-report.component';
 import { UserSupportTicketComponent } from './components/user-support-ticket/user-support-ticket.component';
 import { HomeComponent } from './components/home/home.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { KanbanComponent } from './components/kanban/kanban.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -18,12 +20,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     TicketReportComponent,
     UserSupportTicketComponent,
-    HomeComponent
+    HomeComponent,
+    KanbanComponent,
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    DragDropModule
   ]
 })
 export class UserModule { }
