@@ -17,6 +17,7 @@ export class AdminLoginComponent implements OnInit {
     password: new FormControl('', [Validators.required]),
   });
   isProcess: boolean = false;
+  show: boolean = false;
   LogInSubscription: Subscription | undefined;
 
   constructor(private auth: AuthService, private toast: ToastrService, private router: Router, private route: ActivatedRoute) {}
@@ -62,5 +63,9 @@ export class AdminLoginComponent implements OnInit {
 
   navigateToDashboard() {
     this.router.navigate(['admin']);
+  }
+
+  showPassword() {
+    this.show = !this.show;
   }
 }

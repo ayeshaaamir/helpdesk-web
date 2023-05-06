@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input
+                  <input [type]="show ? 'text' : 'password'"
                     type="password"
                     formControlName="password"
                     id="form3Example4"
@@ -51,8 +51,10 @@
                     >Password is required.</label
                   >
 
-                  <div class="row">
-                    <div class="col-sm-8"></div>
+                  <div class="row" style="margin-top: 5px;">
+                    <div class="col-sm-8">
+                      <input type="checkbox" (click)="showPassword()"><span style="margin-left: 5px;">{{show ? 'Hide Password' : 'Show Password'}}</span>
+                    </div>
                     <div
                       routerLink="../forgot-password"
                       class="col-sm-4 cursor-pointer"
