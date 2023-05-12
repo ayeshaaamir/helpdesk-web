@@ -1,22 +1,33 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
-name: Node.js CI
+name: Angular Build Workflow
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Angular Full CI
-      # You may pin to the exact commit or the version.
-      # uses: colbyhill21/angular-full-ci@a3489087f6a715db335078f999c01d422a254a6c
-      uses: colbyhill21/angular-full-ci@v1.0
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18.x'
+
+    - name: Install dependencies
+      run: npm install -g @angular/cli
+
+    - name: Build Angular app
+      run: ng build --configuration=production
+      
+    - name: Publish to Docker Hub
+      uses: docker/build-push-action@v1     
+      with:       
+       username: ${{ secrets.DOCKER_HUB_USERNAME }} 
+       password:  ${{ secrets.DOCKER_HUB_PASSWORD }}
+       repository: ${{ secrets.DOCKER_HUB_USERNAME }}/helpdesk-web   
+       tags: 1.0.0 # use ${{github.run_number}} to make it dynamic
