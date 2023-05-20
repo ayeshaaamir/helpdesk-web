@@ -9,6 +9,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { TableModule } from 'primeng/table';
+import { TagModule } from 'primeng/tag';
+import { TicketService } from '../user/services/ticket-service';
 
 @NgModule({
   declarations: [
@@ -19,6 +23,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     HomeComponent,
   ],
-  imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    AdminRoutingModule,
+    ReactiveFormsModule,
+    HighchartsChartModule,
+    TableModule,
+    TagModule,
+  ],
+  providers: [TicketService],
 })
 export class AdminModule {}

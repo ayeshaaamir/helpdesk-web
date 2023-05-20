@@ -16,6 +16,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { JwtInterceptor } from './jwt-interceptor/jwt.interceptor';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { TableModule } from 'primeng/table';
+import { TagModule } from 'primeng/tag';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ToastrModule.forRoot(),
     NoopAnimationsModule,
     BrowserAnimationsModule,
-    DragDropModule
+    DragDropModule,
+    TableModule,
+    TagModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
