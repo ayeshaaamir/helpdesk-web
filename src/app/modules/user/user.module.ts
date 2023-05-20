@@ -12,7 +12,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { KanbanComponent } from './components/kanban/kanban.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { EditTicketComponent } from './components/edit-ticket/edit-ticket.component';
-
+import { HighchartsChartModule } from 'highcharts-angular';
+import { TableModule } from 'primeng/table';
+import { TagModule } from 'primeng/tag';
+import { TicketService } from './services/ticket-service';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,13 @@ import { EditTicketComponent } from './components/edit-ticket/edit-ticket.compon
     UserRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    DragDropModule
-  ]
+    DragDropModule,
+    HighchartsChartModule,
+    TableModule,
+    TagModule
+  ],
+  providers: [
+    TicketService,
+  ],
 })
 export class UserModule { }

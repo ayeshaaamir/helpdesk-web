@@ -163,18 +163,25 @@
                     </div>
                   </div>
 
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <input [disabled]="ticketData.invalid"
                       type="submit"
                       class="btn btn-success btn-send pt-2 btn-block"
                       value="Update"
                     />
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <input (click)="resetForm()"
                       type="submit"
                       class="btn btn-danger btn-send pt-2 btn-block"
                       value="Reset"
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <input (click)="resetForm()"
+                      type="submit"
+                      class="btn btn-danger btn-send pt-2 btn-block"
+                      value="Delete"
                     />
                   </div>
                 </div>
