@@ -1,8 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Subscription } from 'rxjs';
-import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -12,18 +10,28 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UserSupportTicketComponent implements OnInit, OnDestroy {
   private storageKey = 'ticketFormData';
-  ticketFields = new FormGroup({
-    firstname: new FormControl('', [Validators.required]),
-    lastname: new FormControl('', [Validators.required]),
-    ticketTitle: new FormControl('', [Validators.required]),
-    category: new FormControl('', [Validators.required]),
-    description: new FormControl('', [Validators.required]),
-  });
-  ticketData = {};
+  ticketFields: FormGroup;
+  ticketData: any;
 
-  constructor(private toast: ToastrService, private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private toast: ToastrService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    this.ticketFields = this.formBuilder.group({
+      customer: ['', Validators.required],
+      branch: ['', Validators.required],
+      ticketDesc: ['', Validators.required],
+      assignee: ['', Validators.required],
+      ticketPriority: ['', Validators.required],
+      status: ['', Validators.required],
+      description: ['', Validators.required]
+    });
+  }
 
   ngOnInit() {
+    this.getTicketDetails();
     this.loadFormValues();
   }
 
@@ -31,34 +39,23 @@ export class UserSupportTicketComponent implements OnInit, OnDestroy {
     this.saveFormValues();
   }
 
-  get firstname() {
-    return this.ticketFields.get('firstname');
-  }
-
-  get lastname() {
-    return this.ticketFields.get('lastname');
-  }
-
-  get ticketTitle() {
-    return this.ticketFields.get('ticketTitle');
-  }
-
-  get category() {
-    return this.ticketFields.get('category');
-  }
-
-  get email() {
-    return this.ticketFields.get('email');
-  }
-
-  get description() {
-    return this.ticketFields.get('description');
-  }
-
   loadFormValues() {
-    const savedData = localStorage.getItem(this.storageKey);
-    if (savedData) {
-      this.ticketFields.setValue(JSON.parse(savedData));
+    if (this.ticketData) {
+      this.ticketFields.patchValue(this.ticketData);
+    } else {
+      const savedData = localStorage.getItem(this.storageKey);
+      if (savedData) {
+        this.ticketFields.patchValue(JSON.parse(savedData));
+      }
+    }
+  }
+
+  getTicketDetails() {
+    const ticket = this.route.snapshot.queryParamMap.get('myObject') as string;
+    if (ticket) {
+      this.ticketData = JSON.parse(ticket);
+    } else {
+      this.ticketData = null;
     }
   }
 
@@ -70,15 +67,25 @@ export class UserSupportTicketComponent implements OnInit, OnDestroy {
     this.ticketFields.reset();
   }
 
-  handleNewTicket() {
-    if(this.ticketFields.valid) {
-      this.ticketData = this.ticketFields.value;
-      console.log(this.ticketData);
-      this.toast.success('Ticket raised successfully!', 'Success', {
-        timeOut: 8000,
-        positionClass: 'toast-bottom-right',
-      });
-      this.ticketFields.reset();
+  handleDeleteTicket() {}
+
+  handleSaveTicket() {
+    if (this.ticketFields.valid) {
+      if (this.ticketData) {
+        this.ticketData = { ...this.ticketData, ...this.ticketFields.value };
+        this.toast.success('Ticket updated successfully!', 'Success', {
+          timeOut: 8000,
+          positionClass: 'toast-bottom-right',
+        });
+        this.ticketFields.reset();
+      } else {
+        this.ticketData = this.ticketFields.value;
+        this.toast.success('Ticket raised successfully!', 'Success', {
+          timeOut: 8000,
+          positionClass: 'toast-bottom-right',
+        });
+        this.ticketFields.reset();
+      }
     } else {
       this.toast.error('Please fill in all the required fields.', 'Error', {
         timeOut: 3000,

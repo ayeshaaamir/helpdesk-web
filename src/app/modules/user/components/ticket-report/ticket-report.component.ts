@@ -36,7 +36,7 @@ export class TicketReportComponent implements OnInit, AfterViewInit {
   }
 
   navigateToEditTicket(ticket: any) {
-    this.router.navigate(['/user/edit-ticket'], { queryParams: { myObject: JSON.stringify(ticket) } });
+    this.router.navigate(['/user/user-support-ticket'], { queryParams: { myObject: JSON.stringify(ticket) } });
   }
 
   ticketDetails() {
@@ -45,41 +45,56 @@ export class TicketReportComponent implements OnInit, AfterViewInit {
         ticketPriority: 'Very High',
         ticketDesc: 'Need to change laptop',
         ticketNumber: 49,
-        raisedBy: 'Aman Kumar',
+        customer: 'Aman Kumar',
+        branch: 'Khi',
+        assignee: 'Test Company',
         email: 'test@gmail.com',
         status: 'Todo',
+        description: ' Test company hardware issues'
       },
       {
         ticketPriority: 'High',
         ticketDesc: 'Internet connectivity issue',
         ticketNumber: 50,
-        raisedBy: 'John Doe',
+        customer: 'Aman Kumar',
+        branch: 'Khi',
+        assignee: 'Test Company',
         email: 'john.doe@example.com',
         status: 'Todo',
+        description: ' Test company hardware issues'
       },
       {
         ticketPriority: 'High',
         ticketDesc: 'Internet connectivity issue',
         ticketNumber: 51,
-        raisedBy: 'John Doe',
+        customer: 'Aman Kumar',
+        branch: 'Khi',
+        assignee: 'Test Company',
         email: 'john.doe@example.com',
         status: 'In Progress',
+        description: ' Test company hardware issues'
       },
       {
         ticketPriority: 'Medium',
         ticketDesc: 'Internet connectivity issue',
         ticketNumber: 52,
-        raisedBy: 'John Doe',
+        customer: 'Aman Kumar',
+        branch: 'Khi',
+        assignee: 'Test Company',
         email: 'john.doe@example.com',
         status: 'Resolved',
+        description: ' Test company hardware issues'
       },
       {
         ticketPriority: 'Low',
         ticketDesc: 'Internet connectivity issue',
         ticketNumber: 53,
-        raisedBy: 'John Doe',
+        customer: 'Aman Kumar',
+        branch: 'Isl',
+        assignee: 'Test Company',
         email: 'john.doe@example.com',
         status: 'Reopened',
+        description: ' Test company hardware issues'
       },
     ];
   }

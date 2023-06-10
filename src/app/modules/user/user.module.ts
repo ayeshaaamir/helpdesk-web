@@ -11,11 +11,11 @@ import { HomeComponent } from './components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { KanbanComponent } from './components/kanban/kanban.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { EditTicketComponent } from './components/edit-ticket/edit-ticket.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { TicketService } from './services/ticket-service';
+import { UsersListComponent } from './components/users-list/users-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { TicketService } from './services/ticket-service';
     UserSupportTicketComponent,
     HomeComponent,
     KanbanComponent,
-    EditTicketComponent,
+    UsersListComponent,
   ],
   imports: [
     CommonModule,
