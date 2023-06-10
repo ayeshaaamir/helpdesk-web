@@ -1,6 +1,6 @@
 <div class="container">
   <div class="text-center mt-5">
-    <h1>Raise a New Ticket</h1>
+    <h1>{{ ticketData ? 'Update Ticket' : 'Raise a New Ticket' }}</h1>
   </div>
 
   <div class="row">
@@ -10,7 +10,7 @@
           <div class="container">
             <form
               [formGroup]="ticketFields"
-              (ngSubmit)="handleNewTicket()"
+              (ngSubmit)="handleSaveTicket()"
               id="contact-form"
               role="form"
             >
@@ -18,132 +18,207 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="form_name">Firstname *</label>
+                      <label for="form_customer">Customer *</label>
                       <input
-                        id="form_name"
+                        id="form_customer"
                         type="text"
-                        formControlName="firstname"
+                        formControlName="customer"
                         class="form-control"
-                        placeholder="Please enter your firstname *"
-                        required="required"
-                        data-error="Firstname is required."
+                        placeholder="Please enter customer*"
+                        required
                       />
                       <label
-                        *ngIf="firstname && firstname.invalid && firstname.touched"
+                        *ngIf="
+                          ticketFields.get('customer')?.invalid &&
+                          ticketFields.get('customer')?.touched
+                        "
                         style="color: red"
                         class="form-label"
-                        for="form3Example3"
-                        >First Name is required.</label
                       >
+                        Customer is required.
+                      </label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="form_lastname">Lastname *</label>
+                      <label for="form_branch">Branch *</label>
                       <input
-                        id="form_lastname"
+                        id="form_branch"
                         type="text"
-                        formControlName="lastname"
+                        formControlName="branch"
                         class="form-control"
-                        placeholder="Please enter your lastname *"
-                        required="required"
-                        data-error="Lastname is required."
+                        placeholder="Please enter your branch *"
+                        required
                       />
                       <label
-                        *ngIf="lastname && lastname.invalid && lastname.touched"
+                        *ngIf="
+                          ticketFields.get('branch')?.invalid &&
+                          ticketFields.get('branch')?.touched
+                        "
                         style="color: red"
                         class="form-label"
-                        for="form3Example3"
-                        >First Name is required.</label
                       >
+                        Branch is required.
+                      </label>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="form_email">Ticket Title *</label>
+                      <label for="form_ticketDesc">Ticket Title *</label>
                       <input
-                        id="form_email"
+                        id="form_ticketDesc"
                         type="text"
-                        formControlName="ticketTitle"
+                        formControlName="ticketDesc"
                         class="form-control"
                         placeholder="Please enter your ticket title *"
-                        required="required"
-                        data-error="Valid email is required."
+                        required
                       />
                       <label
-                        *ngIf="ticketTitle && ticketTitle.invalid && ticketTitle.touched"
+                        *ngIf="
+                          ticketFields.get('ticketDesc')?.invalid &&
+                          ticketFields.get('ticketDesc')?.touched
+                        "
                         style="color: red"
                         class="form-label"
-                        for="form3Example3"
-                        >First Name is required.</label
                       >
+                        Ticket Title is required.
+                      </label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="form_need">Select Category *</label>
+                      <label for="form_ticketPriority">Select Category *</label>
                       <select
-                        id="form_need"
-                        formControlName="category"
+                        id="form_ticketPriority"
+                        formControlName="ticketPriority"
                         class="form-control"
-                        required="required"
-                        data-error="Please specify your need."
+                        required
                       >
-                        <option value="" selected disabled>
-                          --Select Your Priority--
+                        <option value="" disabled selected>
+                          -- Select Your Priority --
                         </option>
-                        <option>Very High Priority</option>
-                        <option>High Priority</option>
-                        <option>Medium Priority</option>
-                        <option>Low Priority</option>
+                        <option>Very High</option>
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
                       </select>
                       <label
-                        *ngIf="category && category.invalid && category.touched"
+                        *ngIf="
+                          ticketFields.get('ticketPriority')?.invalid &&
+                          ticketFields.get('ticketPriority')?.touched
+                        "
                         style="color: red"
                         class="form-label"
-                        for="form3Example3"
-                        >First Name is required.</label
                       >
+                        Category is required.
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="form_assignee">Assignee *</label>
+                      <input
+                        id="form_assignee"
+                        type="text"
+                        formControlName="assignee"
+                        class="form-control"
+                        placeholder="Please enter assignee *"
+                        required
+                      />
+                      <label
+                        *ngIf="
+                          ticketFields.get('assignee')?.invalid &&
+                          ticketFields.get('assignee')?.touched
+                        "
+                        style="color: red"
+                        class="form-label"
+                      >
+                        Assignee is required.
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="form_status">Select Status *</label>
+                      <select
+                        id="form_status"
+                        formControlName="status"
+                        class="form-control"
+                        required
+                      >
+                        <option value="" disabled selected>
+                          -- Select Your Status --
+                        </option>
+                        <option>Todo</option>
+                        <option>In Progress</option>
+                        <option>Resolved</option>
+                        <option>Reopened</option>
+                      </select>
+                      <label
+                        *ngIf="
+                          ticketFields.get('status')?.invalid &&
+                          ticketFields.get('status')?.touched
+                        "
+                        style="color: red"
+                        class="form-label"
+                      >
+                        Status is required.
+                      </label>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label for="form_message">Description of Ticket *</label>
+                      <label for="form_description"
+                        >Description of Ticket *</label
+                      >
                       <textarea
-                        id="form_message"
+                        id="form_description"
                         formControlName="description"
                         class="form-control"
                         placeholder="Write your message here."
                         rows="4"
-                        required="required"
-                        data-error="Please, leave us a message."
+                        required
                       ></textarea>
                       <label
-                        *ngIf="description && description.invalid && description.touched"
+                        *ngIf="
+                          ticketFields.get('description')?.invalid &&
+                          ticketFields.get('description')?.touched
+                        "
                         style="color: red"
                         class="form-label"
-                        for="form3Example3"
-                        >First Name is required.</label
                       >
+                        Description is required.
+                      </label>
                     </div>
                   </div>
-
+                </div>
+                <div class="row">
                   <div class="col-md-6">
-                    <input [disabled]="ticketFields.invalid"
+                    <input
+                      [disabled]="ticketFields.invalid"
                       type="submit"
                       class="btn btn-success btn-send pt-2 btn-block"
                       value="Submit"
                     />
                   </div>
-                  <div class="col-md-6">
+                  <div *ngIf="!ticketData" class="col-md-6">
                     <input (click)="resetForm()"
                       type="submit"
                       class="btn btn-danger btn-send pt-2 btn-block"
                       value="Reset"
+                    />
+                  </div>
+                  <div *ngIf="ticketData" class="col-md-6">
+                    <input (click)="handleDeleteTicket()"
+                      type="submit"
+                      class="btn btn-danger btn-send pt-2 btn-block"
+                      value="Delete"
                     />
                   </div>
                 </div>

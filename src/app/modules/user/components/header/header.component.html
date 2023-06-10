@@ -47,6 +47,15 @@
         ></a>
       </li>
       <li class="nav-item">
+        <a
+          class="nav-link font-weight-bold me-3 p-2"
+          routerLink="/user/user-list"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Users Summary<span class="sr-only"></span
+        ></a>
+      </li>
+      <li class="nav-item">
         <a (click)="onLogout()"
           class="nav-link font-weight-bold me-3 p-2"
           routerLink="/login"
@@ -55,6 +64,9 @@
           >Log Out<span class="sr-only"></span
         ></a>
       </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <i class="fa-2x fa-solid fa-bell fa-beat-fade mr-20"></i>
     </ul>
   </div>
 </nav>

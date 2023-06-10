@@ -13,23 +13,12 @@ export class HomeComponent implements OnInit {
   chartOptions: any;
   ticket: Ticket[] | any;
 
-  cols!: any[];
-
   constructor(private ticketService: TicketService) {}
 
   ngOnInit(): void {
     this.ticketService.getTicketsMini().then((data) => {
       this.ticket = data;
     });
-
-    this.cols = [
-      { field: 'code', header: 'Code' },
-      { field: 'name', header: 'Name' },
-      { field: 'category', header: 'Category' },
-      { field: 'quantity', header: 'Quantity' },
-      { field: 'inventoryStatus', header: 'Status' },
-      { field: 'rating', header: 'Rating' },
-    ];
 
     Highcharts.setOptions({
       lang: {
