@@ -18,6 +18,7 @@ import { TicketService } from './services/ticket-service';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { TooltipModule } from 'primeng/tooltip';
 import { TruncatePipe } from 'src/app/pipes/truncate.pipe';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { TruncatePipe } from 'src/app/pipes/truncate.pipe';
     HomeComponent,
     KanbanComponent,
     UsersListComponent,
-    TruncatePipe
+    TruncatePipe,
   ],
   imports: [
     CommonModule,
@@ -40,7 +41,8 @@ import { TruncatePipe } from 'src/app/pipes/truncate.pipe';
     HighchartsChartModule,
     TableModule,
     TagModule,
-    TooltipModule
+    TooltipModule,
+    DialogModule
   ],
   providers: [
     TicketService,

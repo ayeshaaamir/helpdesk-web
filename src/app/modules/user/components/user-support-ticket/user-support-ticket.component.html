@@ -5,39 +5,77 @@
 </div>
 
 <div class="card">
-  <p-table [value]="ticket" [tableStyle]="{'min-width': '50rem'}">
-      <ng-template pTemplate="header" let-columns>
-          <tr>
-              <th>Ticket Number</th>
-              <th>Ticket Title</th>
-              <th>Customer</th>
-              <th>Assignee</th>
-              <th>Branch</th>
-              <th>Email</th>
-              <th>Status</th>
-              <th>Ticket Priority</th>
-              <th>Description</th>
-              <th>Actions</th>
-          </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-ticket let-columns="columns">
-          <tr>
-              <td>{{ticket.ticketNumber}}</td>
-              <td>{{ticket.ticketTitle}}</td>
-              <td>{{ticket.customer}}</td>
-              <td>{{ticket.assignee}}</td>
-              <td>{{ticket.branch}}</td>
-              <td>{{ticket.email}}</td>
-              <td>{{ticket.status}}</td>
-              <td>{{ticket.ticketPriority}}</td>
-              <td tooltipPosition="bottom" [pTooltip]="ticket.ticketDesc">{{ticket.ticketDesc | truncate: 15}}</td>
-              <td>
-                <i class="mr-5 fa fa-eye"></i>
-                <i class="mr-5 fa fa-plus"></i>
-                <i class="mr-5 fa fa-edit"></i>
-                <i class="mr-5 fa-solid fa-trash"></i>
-              </td>
-          </tr>
-      </ng-template>
+  <p-table [value]="ticket" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th>Ticket Number</th>
+        <th>Ticket Title</th>
+        <th>Customer</th>
+        <th>Assignee</th>
+        <th>Branch</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Ticket Priority</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-ticket let-columns="columns">
+      <tr>
+        <td>{{ ticket.ticketNumber }}</td>
+        <td>{{ ticket.ticketTitle }}</td>
+        <td>{{ ticket.customer }}</td>
+        <td>{{ ticket.assignee }}</td>
+        <td>{{ ticket.branch }}</td>
+        <td>{{ ticket.email }}</td>
+        <td>{{ ticket.status }}</td>
+        <td>{{ ticket.ticketPriority }}</td>
+        <td tooltipPosition="bottom" [pTooltip]="ticket.ticketDesc">
+          {{ ticket.ticketDesc | truncate : 15 }}
+        </td>
+        <td>
+          <i
+            (click)="showDialog()"
+            icon="pi pi-external-link"
+            label="Show"
+            class="mr-5 fa fa-eye cursor-pointer"
+          ></i>
+          <i
+            (click)="showDialog()"
+            icon="pi pi-external-link"
+            label="Show"
+            class="mr-5 fa fa-plus cursor-pointer"
+          ></i>
+          <i
+            (click)="showDialog()"
+            icon="pi pi-external-link"
+            label="Show"
+            class="mr-5 fa fa-edit cursor-pointer"
+          ></i>
+          <i class="mr-5 fa-solid fa-trash cursor-pointer"></i>
+        </td>
+      </tr>
+    </ng-template>
   </p-table>
+</div>
+
+<div>
+  <p-dialog
+    header="Header"
+    [(visible)]="visible"
+    [breakpoints]="{ '960px': '75vw' }"
+    [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [resizable]="false"
+  >
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
+    </p>
+  </p-dialog>
 </div>

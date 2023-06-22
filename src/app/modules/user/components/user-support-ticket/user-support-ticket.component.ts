@@ -8,10 +8,11 @@ import { Ticket } from '../../domain/ticket';
 @Component({
   selector: 'app-user-support-ticket',
   templateUrl: './user-support-ticket.component.html',
-  styleUrls: ['./user-support-ticket.component.css']
+  styleUrls: ['./user-support-ticket.component.css'],
 })
 export class UserSupportTicketComponent implements OnInit, OnDestroy {
   ticket: Ticket[] | any;
+  visible: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -28,4 +29,8 @@ export class UserSupportTicketComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {}
+
+  showDialog() {
+    this.visible = true;
+  }
 }
