@@ -13,7 +13,6 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
-import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { JwtInterceptor } from './jwt-interceptor/jwt.interceptor';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TableModule } from 'primeng/table';
@@ -27,7 +26,6 @@ import { TagModule } from 'primeng/tag';
     NotFoundComponent,
     SignupComponent,
     HomeComponent,
-    AdminLoginComponent,
   ],
   imports: [
     BrowserModule,
