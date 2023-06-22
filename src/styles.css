@@ -2,6 +2,7 @@
 @import '~primeng/resources/themes/saga-blue/theme.css';
 @import '~primeng/resources/primeng.min.css';
 @import '~primeicons/primeicons.css';
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
 
 .color-teal {
   color: teal;

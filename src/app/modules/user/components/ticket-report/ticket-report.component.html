@@ -14,33 +14,29 @@
         <div *ngFor="let ticketDetails of toDoTickets; let i = index" class="price-card mt-25">
           <h2 *ngIf="ticketDetails.ticketPriority === 'Very High'">
             <div
-              data-toggle="tooltip"
-              data-placement="top"
-              title="Very High Priority"
+              tooltipPosition="top"
+              pTooltip="Very High Priority"
               class="box maroon"
             ></div>
           </h2>
           <h2 *ngIf="ticketDetails.ticketPriority === 'High'">
             <div
-              data-toggle="tooltip"
-              data-placement="top"
-              title="High Priority"
+              tooltipPosition="top"
+              pTooltip="High Priority"
               class="box red"
             ></div>
           </h2>
           <h2 *ngIf="ticketDetails.ticketPriority === 'Medium'">
             <div
-              data-toggle="tooltip"
-              data-placement="top"
-              title="Medium Priority"
+              tooltipPosition="top"
+              pTooltip="Medium Priority"
               class="box yellow"
             ></div>
           </h2>
           <h2 *ngIf="ticketDetails.ticketPriority === 'Low'">
             <div
-              data-toggle="tooltip"
-              data-placement="top"
-              title="Low Priority"
+              tooltipPosition="top"
+              pTooltip="Low Priority"
               class="box grey"
             ></div>
           </h2>
@@ -71,17 +67,12 @@
                 ticketDetails.status
               }}</span>
             </li>
-            <li>
+            <li tooltipPosition="bottom" [pTooltip]="ticketDetails.description">
               <span class="font-bold">Description:</span>&nbsp;&nbsp;&nbsp;<span>{{
-                ticketDetails.description
+                ticketDetails.description | truncate: 15
               }}</span>
             </li>
           </ul>
-          <a
-            (click)="navigateToEditTicket(ticketDetails)"
-            class="btn btn-primary btn-mid mr-3"
-            >Edit Ticket Details</a
-          >
         </div>
       </div>
 
@@ -100,33 +91,29 @@
         >
           <h2 *ngIf="ticketDetails.ticketPriority === 'Very High'">
             <div
-              data-toggle="tooltip"
-              data-placement="top"
-              title="Very High Priority"
+              tooltipPosition="top"
+              pTooltip="Very High Priority"
               class="box maroon"
             ></div>
           </h2>
           <h2 *ngIf="ticketDetails.ticketPriority === 'High'">
             <div
-              data-toggle="tooltip"
-              data-placement="top"
-              title="High Priority"
+              tooltipPosition="top"
+              pTooltip="High Priority"
               class="box red"
             ></div>
           </h2>
           <h2 *ngIf="ticketDetails.ticketPriority === 'Medium'">
             <div
-              data-toggle="tooltip"
-              data-placement="top"
-              title="Medium Priority"
+              tooltipPosition="top"
+              pTooltip="Medium Priority"
               class="box yellow"
             ></div>
           </h2>
           <h2 *ngIf="ticketDetails.ticketPriority === 'Low'">
             <div
-              data-toggle="tooltip"
-              data-placement="top"
-              title="Low Priority"
+              tooltipPosition="top"
+              pTooltip="Low Priority"
               class="box grey"
             ></div>
           </h2>
@@ -157,17 +144,12 @@
                 ticketDetails.status
               }}</span>
             </li>
-            <li>
+            <li tooltipPosition="bottom" [pTooltip]="ticketDetails.description">
               <span class="font-bold">Description:</span>&nbsp;&nbsp;&nbsp;<span>{{
-                ticketDetails.description
+                ticketDetails.description | truncate: 15
               }}</span>
             </li>
           </ul>
-          <a
-            (click)="navigateToEditTicket(ticketDetails)"
-            class="btn btn-primary btn-mid mr-3"
-            >Edit Ticket Details</a
-          >
         </div>
       </div>
 
@@ -186,33 +168,29 @@
         >
           <h2 *ngIf="ticketDetails.ticketPriority === 'Very High'">
             <div
-              data-toggle="tooltip"
-              data-placement="top"
-              title="Very High Priority"
+              tooltipPosition="top"
+              pTooltip="Very High Priority"
               class="box maroon"
             ></div>
           </h2>
           <h2 *ngIf="ticketDetails.ticketPriority === 'High'">
             <div
-              data-toggle="tooltip"
-              data-placement="top"
-              title="High Priority"
+              tooltipPosition="top"
+              pTooltip="High Priority"
               class="box red"
             ></div>
           </h2>
           <h2 *ngIf="ticketDetails.ticketPriority === 'Medium'">
             <div
-              data-toggle="tooltip"
-              data-placement="top"
-              title="Medium Priority"
+              tooltipPosition="top"
+              pTooltip="Medium Priority"
               class="box yellow"
             ></div>
           </h2>
           <h2 *ngIf="ticketDetails.ticketPriority === 'Low'">
             <div
-              data-toggle="tooltip"
-              data-placement="top"
-              title="Low Priority"
+              tooltipPosition="top"
+              pTooltip="Low Priority"
               class="box grey"
             ></div>
           </h2>
@@ -243,17 +221,12 @@
                 ticketDetails.status
               }}</span>
             </li>
-            <li>
+            <li tooltipPosition="bottom" [pTooltip]="ticketDetails.description">
               <span class="font-bold">Description:</span>&nbsp;&nbsp;&nbsp;<span>{{
-                ticketDetails.description
+                ticketDetails.description | truncate: 15
               }}</span>
             </li>
           </ul>
-          <a
-            (click)="navigateToEditTicket(ticketDetails)"
-            class="btn btn-primary btn-mid mr-3"
-            >Edit Ticket Details</a
-          >
         </div>
       </div>
 
@@ -272,33 +245,29 @@
         >
           <h2 *ngIf="ticketDetails.ticketPriority === 'Very High'">
             <div
-              data-toggle="tooltip"
-              data-placement="top"
-              title="Very High Priority"
+              tooltipPosition="top"
+              pTooltip="Very High Priority"
               class="box maroon"
             ></div>
           </h2>
           <h2 *ngIf="ticketDetails.ticketPriority === 'High'">
             <div
-              data-toggle="tooltip"
-              data-placement="top"
-              title="High Priority"
+              tooltipPosition="top"
+              pTooltip="High Priority"
               class="box red"
             ></div>
           </h2>
           <h2 *ngIf="ticketDetails.ticketPriority === 'Medium'">
             <div
-              data-toggle="tooltip"
-              data-placement="top"
-              title="Medium Priority"
+              tooltipPosition="top"
+              pTooltip="Medium Priority"
               class="box yellow"
             ></div>
           </h2>
           <h2 *ngIf="ticketDetails.ticketPriority === 'Low'">
             <div
-              data-toggle="tooltip"
-              data-placement="top"
-              title="Low Priority"
+              tooltipPosition="top"
+              pTooltip="Low Priority"
               class="box grey"
             ></div>
           </h2>
@@ -329,17 +298,12 @@
                 ticketDetails.status
               }}</span>
             </li>
-            <li>
+            <li tooltipPosition="bottom" [pTooltip]="ticketDetails.description">
               <span class="font-bold">Description:</span>&nbsp;&nbsp;&nbsp;<span>{{
-                ticketDetails.description
+                ticketDetails.description | truncate: 15
               }}</span>
             </li>
           </ul>
-          <a
-            (click)="navigateToEditTicket(ticketDetails)"
-            class="btn btn-primary btn-mid mr-3"
-            >Edit Ticket Details</a
-          >
         </div>
       </div>
 
