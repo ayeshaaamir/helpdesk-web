@@ -27,3 +27,10 @@ label {
 margin-left: 10px;
 margin-right: 10px;
 }
+
+.no-data {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,232 +1,382 @@
-<div class="container">
-  <div class="text-center mt-5">
-    <h1>{{ ticketData ? 'Update Ticket' : 'Raise a New Ticket' }}</h1>
+<div class="row mt-5">
+  <div class="col-sm-4">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search Ticket"
+      aria-label="Username"
+      aria-describedby="basic-addon1"
+    />
   </div>
+  <div class="col-sm-4 offset-sm-4 d-flex align-items-end justify-content-end">
+    <button
+      (click)="showDialog(ticket, true)"
+      class="btn btn-success btn-send pt-2 btn-block"
+    >
+      <i class="fa fa-plus cursor-pointer"></i> Create Ticket
+    </button>
+  </div>
+</div>
 
-  <div class="row">
-    <div class="col-lg-7 mx-auto">
-      <div class="card mt-2 mx-auto p-4 bg-light">
-        <div class="card-body bg-light">
-          <div class="container">
-            <form
-              [formGroup]="ticketFields"
-              (ngSubmit)="handleSaveTicket()"
-              id="contact-form"
-              role="form"
-            >
-              <div class="controls">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="form_customer">Customer *</label>
-                      <input
-                        id="form_customer"
-                        type="text"
-                        formControlName="customer"
-                        class="form-control"
-                        placeholder="Please enter customer*"
-                        required
-                      />
-                      <label
-                        *ngIf="
-                          ticketFields.get('customer')?.invalid &&
-                          ticketFields.get('customer')?.touched
-                        "
-                        style="color: red"
-                        class="form-label"
-                      >
-                        Customer is required.
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="form_branch">Branch *</label>
-                      <input
-                        id="form_branch"
-                        type="text"
-                        formControlName="branch"
-                        class="form-control"
-                        placeholder="Please enter your branch *"
-                        required
-                      />
-                      <label
-                        *ngIf="
-                          ticketFields.get('branch')?.invalid &&
-                          ticketFields.get('branch')?.touched
-                        "
-                        style="color: red"
-                        class="form-label"
-                      >
-                        Branch is required.
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="form_ticketDesc">Ticket Title *</label>
-                      <input
-                        id="form_ticketDesc"
-                        type="text"
-                        formControlName="ticketDesc"
-                        class="form-control"
-                        placeholder="Please enter your ticket title *"
-                        required
-                      />
-                      <label
-                        *ngIf="
-                          ticketFields.get('ticketDesc')?.invalid &&
-                          ticketFields.get('ticketDesc')?.touched
-                        "
-                        style="color: red"
-                        class="form-label"
-                      >
-                        Ticket Title is required.
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="form_ticketPriority">Select Category *</label>
-                      <select
-                        id="form_ticketPriority"
-                        formControlName="ticketPriority"
-                        class="form-control"
-                        required
-                      >
-                        <option value="" disabled selected>
-                          -- Select Your Priority --
-                        </option>
-                        <option>Very High</option>
-                        <option>High</option>
-                        <option>Medium</option>
-                        <option>Low</option>
-                      </select>
-                      <label
-                        *ngIf="
-                          ticketFields.get('ticketPriority')?.invalid &&
-                          ticketFields.get('ticketPriority')?.touched
-                        "
-                        style="color: red"
-                        class="form-label"
-                      >
-                        Category is required.
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="form_assignee">Assignee *</label>
-                      <input
-                        id="form_assignee"
-                        type="text"
-                        formControlName="assignee"
-                        class="form-control"
-                        placeholder="Please enter assignee *"
-                        required
-                      />
-                      <label
-                        *ngIf="
-                          ticketFields.get('assignee')?.invalid &&
-                          ticketFields.get('assignee')?.touched
-                        "
-                        style="color: red"
-                        class="form-label"
-                      >
-                        Assignee is required.
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="form_status">Select Status *</label>
-                      <select
-                        id="form_status"
-                        formControlName="status"
-                        class="form-control"
-                        required
-                      >
-                        <option value="" disabled selected>
-                          -- Select Your Status --
-                        </option>
-                        <option>Todo</option>
-                        <option>In Progress</option>
-                        <option>Resolved</option>
-                        <option>Reopened</option>
-                      </select>
-                      <label
-                        *ngIf="
-                          ticketFields.get('status')?.invalid &&
-                          ticketFields.get('status')?.touched
-                        "
-                        style="color: red"
-                        class="form-label"
-                      >
-                        Status is required.
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="form_description"
-                        >Description of Ticket *</label
-                      >
-                      <textarea
-                        id="form_description"
-                        formControlName="description"
-                        class="form-control"
-                        placeholder="Write your message here."
-                        rows="4"
-                        required
-                      ></textarea>
-                      <label
-                        *ngIf="
-                          ticketFields.get('description')?.invalid &&
-                          ticketFields.get('description')?.touched
-                        "
-                        style="color: red"
-                        class="form-label"
-                      >
-                        Description is required.
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <input
-                      [disabled]="ticketFields.invalid"
-                      type="submit"
-                      class="btn btn-success btn-send pt-2 btn-block"
-                      value="Submit"
-                    />
-                  </div>
-                  <div *ngIf="!ticketData" class="col-md-6">
-                    <input (click)="resetForm()"
-                      type="submit"
-                      class="btn btn-danger btn-send pt-2 btn-block"
-                      value="Reset"
-                    />
-                  </div>
-                  <div *ngIf="ticketData" class="col-md-6">
-                    <input (click)="handleDeleteTicket()"
-                      type="submit"
-                      class="btn btn-danger btn-send pt-2 btn-block"
-                      value="Delete"
-                    />
-                  </div>
-                </div>
+<div class="mt-5 card">
+  <p-table [value]="ticketList" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th>Ticket Number</th>
+        <th>Ticket Title</th>
+        <th>Customer</th>
+        <th>Assignee</th>
+        <th>Branch</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Ticket Priority</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template
+      *ngIf="ticketList.length > 0"
+      pTemplate="body"
+      let-ticket
+      let-columns="columns"
+    >
+      <tr *ngFor="let ticket of ticketList">
+        <td>{{ ticket.ticketId }}</td>
+        <td>{{ ticket.description }}</td>
+        <td>{{ ticket.customer }}</td>
+        <td>{{ ticket.assignee }}</td>
+        <td>{{ ticket.branch }}</td>
+        <td>{{ ticket.email }}</td>
+        <td>{{ ticket.status }}</td>
+        <td>{{ ticket.ticketPriority }}</td>
+        <td tooltipPosition="bottom" [pTooltip]="ticket?.ticketDesc || ''">
+          {{ ticket?.ticketDesc || "" | truncate : 15 }}
+        </td>
+        <td>
+          <i
+            (click)="showDialog(ticket, false)"
+            icon="pi pi-external-link"
+            label="Show"
+            class="mr-5 fa fa-eye cursor-pointer"
+          ></i>
+          <i
+            (click)="showDialog(ticket, true)"
+            icon="pi pi-external-link"
+            label="Show"
+            class="mr-5 fa fa-edit cursor-pointer"
+          ></i>
+          <i
+            (click)="showDeleteDialog(ticket)"
+            class="mr-5 fa-solid fa-trash cursor-pointer"
+          ></i>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<div class="no-data" *ngIf="ticketList.length === 0">
+  <h2>No data</h2>
+</div>
+
+<div>
+  <p-dialog
+    header="Create Ticket"
+    [(visible)]="visible"
+    [breakpoints]="{ '960px': '75vw' }"
+    [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [resizable]="false"
+  >
+    <div class="container">
+      <form
+        [formGroup]="ticketFields"
+        (ngSubmit)="handleSave()"
+        id="contact-form"
+        role="form"
+      >
+        <div class="controls">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_ticketId">Ticket Id *</label>
+                <input
+                  id="form_ticketId"
+                  type="text"
+                  formControlName="ticketId"
+                  class="form-control"
+                  placeholder="Please enter ticket Id*"
+                  required
+                />
+                <label
+                  *ngIf="
+                    ticketFields.get('ticketId')?.invalid &&
+                    ticketFields.get('ticketId')?.touched
+                  "
+                  style="color: red"
+                  class="form-label"
+                >
+                  Ticket Id is required.
+                </label>
               </div>
-            </form>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_email">Email *</label>
+                <input
+                  id="form_email"
+                  type="text"
+                  formControlName="email"
+                  class="form-control"
+                  placeholder="Please enter your email *"
+                  required
+                />
+                <label
+                  *ngIf="
+                    ticketFields.get('email')?.invalid &&
+                    ticketFields.get('email')?.touched
+                  "
+                  style="color: red"
+                  class="form-label"
+                >
+                  Email is required.
+                </label>
+              </div>
+            </div>
           </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_customer">Customer *</label>
+                <input
+                  id="form_customer"
+                  type="text"
+                  formControlName="customer"
+                  class="form-control"
+                  placeholder="Please enter customer*"
+                  required
+                />
+                <label
+                  *ngIf="
+                    ticketFields.get('customer')?.invalid &&
+                    ticketFields.get('customer')?.touched
+                  "
+                  style="color: red"
+                  class="form-label"
+                >
+                  Customer is required.
+                </label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_branch">Branch *</label>
+                <input
+                  id="form_branch"
+                  type="text"
+                  formControlName="branch"
+                  class="form-control"
+                  placeholder="Please enter your branch *"
+                  required
+                />
+                <label
+                  *ngIf="
+                    ticketFields.get('branch')?.invalid &&
+                    ticketFields.get('branch')?.touched
+                  "
+                  style="color: red"
+                  class="form-label"
+                >
+                  Branch is required.
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_ticketDesc">Ticket Title *</label>
+                <input
+                  id="form_ticketDesc"
+                  type="text"
+                  formControlName="ticketDesc"
+                  class="form-control"
+                  placeholder="Please enter your ticket title *"
+                  required
+                />
+                <label
+                  *ngIf="
+                    ticketFields.get('ticketDesc')?.invalid &&
+                    ticketFields.get('ticketDesc')?.touched
+                  "
+                  style="color: red"
+                  class="form-label"
+                >
+                  Ticket Title is required.
+                </label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_ticketPriority">Select Category *</label>
+                <select
+                  id="form_ticketPriority"
+                  formControlName="ticketPriority"
+                  class="form-control"
+                  required
+                >
+                  <option value="" disabled selected>
+                    -- Select Your Priority --
+                  </option>
+                  <option>Very High</option>
+                  <option>High</option>
+                  <option>Medium</option>
+                  <option>Low</option>
+                </select>
+                <label
+                  *ngIf="
+                    ticketFields.get('ticketPriority')?.invalid &&
+                    ticketFields.get('ticketPriority')?.touched
+                  "
+                  style="color: red"
+                  class="form-label"
+                >
+                  Category is required.
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_assignee">Assignee *</label>
+                <input
+                  id="form_assignee"
+                  type="text"
+                  formControlName="assignee"
+                  class="form-control"
+                  placeholder="Please enter assignee *"
+                  required
+                />
+                <label
+                  *ngIf="
+                    ticketFields.get('assignee')?.invalid &&
+                    ticketFields.get('assignee')?.touched
+                  "
+                  style="color: red"
+                  class="form-label"
+                >
+                  Assignee is required.
+                </label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_status">Select Status *</label>
+                <select
+                  id="form_status"
+                  formControlName="status"
+                  class="form-control"
+                  required
+                >
+                  <option value="" disabled selected>
+                    -- Select Your Status --
+                  </option>
+                  <option>Todo</option>
+                  <option>In Progress</option>
+                  <option>Resolved</option>
+                  <option>Reopened</option>
+                </select>
+                <label
+                  *ngIf="
+                    ticketFields.get('status')?.invalid &&
+                    ticketFields.get('status')?.touched
+                  "
+                  style="color: red"
+                  class="form-label"
+                >
+                  Status is required.
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="form_description">Description of Ticket *</label>
+                <textarea
+                  id="form_description"
+                  formControlName="description"
+                  class="form-control"
+                  placeholder="Write your message here."
+                  rows="4"
+                  required
+                ></textarea>
+                <label
+                  *ngIf="
+                    ticketFields.get('description')?.invalid &&
+                    ticketFields.get('description')?.touched
+                  "
+                  style="color: red"
+                  class="form-label"
+                >
+                  Description is required.
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <input
+                [disabled]="ticketFields.invalid"
+                type="submit"
+                class="btn btn-success btn-send pt-2 btn-block"
+                value="Submit"
+              />
+            </div>
+            <div class="col-md-6">
+              <input
+                type="submit"
+                class="btn btn-danger btn-send pt-2 btn-block"
+                value="Reset"
+              />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </p-dialog>
+</div>
+
+<div>
+  <p-dialog
+    header=""
+    [(visible)]="visibleDelete"
+    [breakpoints]="{ '750px': '55vw' }"
+    [style]="{ width: '40vw' }"
+    [draggable]="false"
+    [resizable]="false"
+  >
+    <h2 class="text-center">Are you sure you want to delete this ticket?</h2>
+    <div class="mt-5">
+      <div class="row">
+        <div class="col-sm-6">
+          <input
+            (click)="closeModal()"
+            type="submit"
+            class="btn btn-success btn-send pt-2 btn-block"
+            value="Cancel"
+          />
+        </div>
+        <div class="col-sm-6">
+          <input
+            (click)="handleDeleteTicket()"
+            type="submit"
+            class="btn btn-danger btn-send pt-2 btn-block"
+            value="Delete"
+          />
         </div>
       </div>
     </div>
-  </div>
+  </p-dialog>
 </div>
